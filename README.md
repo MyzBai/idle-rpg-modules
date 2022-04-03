@@ -1,11 +1,8 @@
-<key>
-  529d32e203fb53700710d725ad75c820
-</key>
+(*Required*)<br>
+Key: 529d32e203fb53700710d725ad75c820
 
-<name>
-  Demo
-</name>
+(*Required*)<br>
+Name: Demo
 
-<description>:
-  This is a demo
-</description>
+Description:<br>
+  This is a demo<br>Enjoy!
