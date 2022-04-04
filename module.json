@@ -2,19 +2,14 @@
 	"$schema": "../../json/schemas/module-schema.json",
 	"config": { "exclude": ["items", "modTree"] },
 	"defaultMods": [
-		{ "id": "minPhysicalDamage", "value": 5 },
-		{ "id": "maxPhysicalDamage", "value": 10 },
-		{ "id": "critMulti", "value": 150 },
-		{ "id": "duration", "value": 6 },
-		{ "id": "mana", "value": 100 },
-		{ "id": "manaRegen", "value": 1 },
-		{ "id": "strength", "value": 100 },
-		{ "id": "strength", "value": 100 },
-		{ "id": "dexterity", "value": 100 },
-		{ "id": "intelligence", "value": 100 },
-		{ "id": "damage", "value": 0.1 },
-		{ "id": "hitChance", "value": 0.1 },
-		{ "id": "mana", "value": 1 }
+		{ "id": "baseCritMulti", "value": 150 },
+		{ "id": "baseBleedDuration", "value": 6 },
+		{ "id": "baseMana", "value": 100 },
+		{ "id": "baseManaRegen", "value": 1 },
+		{ "id": "BaseStrength", "value": 100 },
+		{ "id": "incStrength", "value": 100 },
+		{ "id": "baseDexterity", "value": 100 },
+		{ "id": "baseIntelligence", "value": 100 },
 	],
 	"enemies": {
 		"healths": [
