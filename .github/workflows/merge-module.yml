@@ -1,0 +1,10 @@
+# This is a basic workflow to help you get started with Actions
+
+name: merge
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to bump to'
+        required: false
