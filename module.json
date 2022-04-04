@@ -1,6 +1,6 @@
 {
 	"defaultStatMods": [
-		{ "id": "minPhysicalDamage", "value": 5 },
+		{ "id2": "minPhysicalDamage", "value": 5 },
 		{ "id": "maxPhysicalDamage", "value": 10 },
 		{ "id": "critMulti", "value": 150 },
 		{ "id": "duration", "value": 6 },
