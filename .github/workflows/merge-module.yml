@@ -16,5 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: javascript ./.github/worldflows/merge.js
+      run: |
+        mkdir -p myNewFolder && cp -R dist myNewFolder
+        ls myNewFolder
       
