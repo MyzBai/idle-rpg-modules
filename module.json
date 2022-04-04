@@ -9,7 +9,7 @@
 		{ "id": "BaseStrength", "value": 100 },
 		{ "id": "incStrength", "value": 100 },
 		{ "id": "baseDexterity", "value": 100 },
-		{ "id": "baseIntelligence", "value": 100 },
+		{ "id": "baseIntelligence", "value": 100 }
 	],
 	"enemies": {
 		"healths": [
