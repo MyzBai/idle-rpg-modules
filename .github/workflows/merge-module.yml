@@ -9,9 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Create folder
+      - name: Create file
         run: |
-          mkdir -p myNewFolder
-          ls myNewFolder
+          printf "Hello\nWorld\n" > hw.txt
+      - name: Create file
+        run: |
+          echo First > other.txt
+          echo Second >> other.txt
+          echo Third >> other.txt
+      - name: Show file content
+        run: |
+          pwd
+          ls -la
+          cat hw.txt
+          cat other.txt
