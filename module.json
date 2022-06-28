@@ -1,353 +1,571 @@
 {
-  "$schema": "../../json/schemas/module-schema.json",
-  "config": {
-    "exclude": ["items", "modTree"],
-    "description": "This demo is a proof of concept.\nIt's quite short and simple\nEnjoy!"
-  },
-  "defaultMods": {
-      "player": [
-        {"id": "basePhysicalDamage", "stats": [{"value": 1}, {"value": 3}]},
-        {"id": "baseCritMulti", "stats": [{"value": 150}]},
-        {"id": "baseBleedDuration", "stats": [{"value": 6}]},
-        {"id": "baseMana", "stats": [{"value": 50}]},
-        {"id": "baseManaRegen", "stats": [{"value": 1}]},
-        {"id": "baseStrength", "stats": [{"value": 100}]},
-        {"id": "incStrength", "stats": [{"value": 100}]},
-        {"id": "baseDexterity", "stats": [{"value": 100}]},
-        {"id": "baseIntelligence", "stats": [{"value": 100}]},
-        {"id": "maxBleedCount", "stats": [{"value": 1}]}
-      ],
-      "enemy": [
-          
-      ]
-  },
-  "enemies": {
-    "healths": [
-      {"health": 200},
-      {"health": 200},
-      {"health": 300},
-      {"health": 400},
-      {"health": 500},
-      {"health": 600},
-      {"health": 700},
-      {"health": 800},
-      {"health": 900},
-      {"health": 1000}
-    ]
-  },
-  "skills": {
-    "maxSupports": 6,
-    "attacks": [
-      {
-        "name": "Default Attack",
-        "attackSpeed": 1,
-        "manaCost": 0,
-        "baseDamageMultiplier": 100,
-        "mods": [
-          {"id": "baseHitChance", "stats": [{"value": 100}]},
-          {"id": "basePhysicalDamage", "stats": [{"value": 1}, {"value": 3}]}
-        ]
-      },
-      {
-        "name": "Physical Attack",
-        "attackSpeed": 1,
-        "manaCost": 5,
-        "baseDamageMultiplier": 100,
-        "mods": [
-          {"id": "baseHitChance", "stats": [{"value": 80}]},
-          {"id": "incPhysicalDamage", "stats": [{"value": 50}]}
-        ]
-      },
-      {
-        "name": "Elemental Attack",
-        "attackSpeed": 1,
-        "manaCost": 5,
-        "baseDamageMultiplier": 100,
-        "mods": [
-          {"id": "baseHitChance", "stats": [{"value": 80}]},
-          {"id": "incElementalDamage", "stats": [{"value": 50}]}
-        ]
-      },
-      {
-        "name": "Chaos Attack",
-        "attackSpeed": 1,
-        "manaCost": 5,
-        "baseDamageMultiplier": 100,
-        "mods": [
-          {"id": "baseHitChance", "stats": [{"value": 80}]},
-          {"id": "incChaosDamage", "stats": [{"value": 50}]}
-        ]
-      }
-    ],
-    "supports": [
-      {
-        "name": "Damage",
-        "manaMultiplier": 120,
-        "mods": [{"id": "moreDamage", "stats": [{"value": 100}]}]
-      },
-      {
-        "name": "Attack Speed",
-        "manaMultiplier": 130,
-        "mods": [{"id": "moreAttackSpeed", "stats": [{"value": 10}]}]
-      },
-      {
-        "name": "Hit Chance",
-        "manaMultiplier": 110,
-        "mods": [{"id": "baseHitChance", "stats": [{"value": 10}]}]
-      },
-      {
-        "name": "Crit Chance",
-        "manaMultiplier": 150,
-        "mods": [{"id": "baseCritChance", "stats": [{"value": 30}]}]
-      },
-      {
-        "name": "Crit Multiplier",
-        "manaMultiplier": 200,
-        "mods": [{"id": "baseCritMulti", "stats": [{"value": 200}]}]
-      },
-      {
-        "name": "Chance to Bleed",
-        "manaMultiplier": 200,
-        "mods": [{"id": "baseBleedChance", "stats": [{"value": 50}]}]
-      },
-      {
-        "name": "Bleed Damage",
-        "manaMultiplier": 200,
-        "mods": [{"id": "moreBleedDamage", "stats": [{"value": 50}]}]
-      }
-    ]
-  },
-  "items": {
-    "maxMods": 6,
-    "items": [
-      {"name": "Item 1", "levelReq": 1},
-      {"name": "Item 2", "levelReq": 3},
-      {"name": "Item 3", "levelReq": 5},
-      {"name": "Item 4", "levelReq": 8},
-      {"name": "Item 5", "levelReq": 10}
-    ],
-    "crafting": {
-      "basic": {
-        "actions": {
-          "rollMods": {
-            "weights": [5, 10, 20, 30, 15, 5],
-            "tierTargets": {
-              "random": {"cost": 10},
-              "lucky": {"cost": 100},
-              "max": {"cost": 1000}
-            }
-          },
-          "addMod": {
-            "tierTargets": {
-              "random": {"cost": 100},
-              "lucky": {"cost": 1000},
-              "max": {"cost": 10000}
-            }
-          },
-          "rollValues": {"cost": 1000},
-          "remove": {"cost": 500}
-        }
-      }
-    },
-    "modTables": [
-      {
-        "id": "basePhysicalDamage",
-        "mods": [
-          {
-            "levelReq": 1,
-            "weight": 100,
-            "stats": [{"min": 3, "max": 4}, {"min": 5, "max": 7}]
-          },
-          {
-            "levelReq": 5,
-            "weight": 90,
-            "stats": [{"min": 4, "max": 6}, {"min": 6, "max": 9}]
-          },
-          {
-            "levelReq": 10,
-            "weight": 90,
-            "stats": [{"min": 8, "max": 10}, {"min": 11, "max": 14}]
-          },
-          {
-            "levelReq": 15,
-            "weight": 85,
-            "stats": [{"min": 10, "max": 14}, {"min": 16, "max": 20}]
-          }
-        ]
-      },
-      {
-        "id": "incPhysicalDamage",
-        "mods": [
-          {"levelReq": 1, "weight": 80, "stats": [{"min": 20, "max": 30}]},
-          {"levelReq": 5, "weight": 80, "stats": [{"min": 30, "max": 40}]},
-          {"levelReq": 10, "weight": 80, "stats": [{"min": 40, "max": 50}]}
-        ]
-      },
-      {
-        "id": "baseHitChance",
-        "mods": [
-          {"levelReq": 1, "weight": 100, "stats": [{"min": 5, "max": 10}]},
-          {"levelReq": 5, "weight": 100, "stats": [{"min": 10, "max": 15}]},
-          {"levelReq": 10, "weight": 100, "stats": [{"min": 15, "max": 20}]}
-        ]
-      },
-      {
-        "id": "incAttackSpeed",
-        "mods": [
-          {"levelReq": 1, "weight": 80, "stats": [{"min": 20, "max": 30}]},
-          {"levelReq": 5, "weight": 80, "stats": [{"min": 30, "max": 40}]},
-          {"levelReq": 10, "weight": 80, "stats": [{"min": 40, "max": 50}]}
-        ]
-      },
-      {
-        "id": "baseCritChance",
-        "mods": [
-          {"levelReq": 1, "weight": 60, "stats": [{"min": 5, "max": 9}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 10, "max": 15}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 16, "max": 20}]}
-        ]
-      },
-      {
-        "id": "baseCritMulti",
-        "mods": [
-          {"levelReq": 1, "weight": 60, "stats": [{"min": 24, "max": 29}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 30, "max": 44}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 45, "max": 60}]}
-        ]
-      },
-      {
-        "id": "baseBleedChance",
-        "mods": [
-          {"levelReq": 1, "weight": 70, "stats": [{"min": 3, "max": 6}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 7, "max": 11}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 12, "max": 15}]}
-        ]
-      },
-      {
-        "id": "incBleedDamage",
-        "mods": [
-          {"levelReq": 1, "weight": 70, "stats": [{"min": 16, "max": 22}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 23, "max": 31}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 32, "max": 38}]}
-        ]
-      },
-      {
-        "id": "incManaRegen",
-        "mods": [
-          {"levelReq": 1, "weight": 70, "stats": [{"min": 20, "max": 30}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 31, "max": 40}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 41, "max": 50}]}
-        ]
-      },
-      {
-        "id": "incMana",
-        "mods": [
-          {"levelReq": 1, "weight": 70, "stats": [{"min": 20, "max": 30}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 31, "max": 40}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 41, "max": 50}]}
-        ]
-      },
-      {
-        "id": "baseMana",
-        "mods": [
-          {"levelReq": 1, "weight": 70, "stats": [{"min": 20, "max": 30}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 31, "max": 40}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 41, "max": 50}]}
-        ]
-      },
-      {
-        "id": "baseStrength",
-        "mods": [
-          {"levelReq": 1, "weight": 70, "stats": [{"min": 5, "max": 10}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 11, "max": 15}]},
-          {"levelReq": 15, "weight": 60, "stats": [{"min": 16, "max": 20}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 21, "max": 25}]}
-        ]
-      },
-      {
-        "id": "baseDexterity",
-        "mods": [
-          {"levelReq": 1, "weight": 70, "stats": [{"min": 5, "max": 10}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 11, "max": 15}]},
-          {"levelReq": 15, "weight": 60, "stats": [{"min": 16, "max": 20}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 21, "max": 25}]}
-        ]
-      },
-      {
-        "id": "baseIntelligence",
-        "mods": [
-          {"levelReq": 1, "weight": 70, "stats": [{"min": 5, "max": 10}]},
-          {"levelReq": 10, "weight": 60, "stats": [{"min": 11, "max": 15}]},
-          {"levelReq": 15, "weight": 60, "stats": [{"min": 16, "max": 20}]},
-          {"levelReq": 20, "weight": 50, "stats": [{"min": 21, "max": 25}]}
-        ]
-      }
-    ]
-  },
-  "modTree": {
-    "numPointsPerLevel": 1,
-    "unassignCost": 1,
-    "nodes": [
-      {
-        "name": "Strength",
-        "maxPoints": 10,
-        "reqLevel": 0,
-        "mods": [{"id": "baseStrength", "stats": [{"value": 10}]}]
-      },
-      {
-        "name": "Dexterity",
-        "maxPoints": 10,
-        "reqLevel": 0,
-        "mods": [{"id": "baseDexterity", "stats": [{"value": 10}]}]
-      },
-      {
-        "name": "Intelligence",
-        "maxPoints": 10,
-        "reqLevel": 0,
-        "mods": [{"id": "baseIntelligence", "stats": [{"value": 10}]}]
-      },
-      {
-        "name": "Physical Damage",
-        "maxPoints": 5,
-        "reqLevel": 0,
-        "mods": [{"id": "incPhysicalDamage", "stats": [{"value": 10}]}]
-      },
-      {
-        "name": "Elemental Damage",
-        "maxPoints": 5,
-        "reqLevel": 0,
-        "mods": [{"id": "incElementalDamage", "stats": [{"value": 10}]}]
-      },
-      {
-        "name": "Chaos Damage",
-        "maxPoints": 5,
-        "reqLevel": 0,
-        "mods": [{"id": "incChaosDamage", "stats": [{"value": 10}]}]
-      },
-      {
-        "name": "Attack Speed",
-        "maxPoints": 10,
-        "reqLevel": 5,
-        "mods": [{"id": "incAttackSpeed", "stats": [{"value": 5}]}]
-      },
-      {
-        "name": "Hit Chance",
-        "maxPoints": 10,
-        "reqLevel": 5,
-        "mods": [{"id": "hitChance", "stats": [{"value": 3}]}]
-      },
-      {
-        "name": "Critical Strike Chance",
-        "maxPoints": 10,
-        "reqLevel": 10,
-        "mods": [{"id": "critChance", "stats": [{"value": 5}]}]
-      },
-      {
-        "name": "Critical Strike Multiplier",
-        "maxPoints": 10,
-        "reqLevel": 10,
-        "mods": [{"id": "critMulti", "stats": [{"value": 20}]}]
-      }
-    ]
-  }
+    "$schema": "../../json/schemas/module-schema.json",
+	"config": {
+		"exclude": [
+			"modTree"
+		],
+		"description": "This demo is a proof of concept.\nIt's quite short and simple\nEnjoy!"
+	},
+	"player": {
+		"defaultStatValues": {
+			"minPhysicalDamage": 1,
+			"maxPhysicalDamage": 3,
+			"critMulti": 150,
+			"bleedDuration": 6,
+			"bleedCount": 1,
+			"mana": 100,
+			"manaRegen": 1,
+			"strength": 16,
+			"dexterity": 14,
+			"intelligence": 8
+		}
+	},
+	"enemies": {
+		"enemyList": [
+			{
+				"health": 500
+			},
+			{
+				"health": 1000
+			},
+			{
+				"health": 10000
+			},
+			{
+				"health": 20000
+			},
+			{
+				"health": 50000
+			},
+			{
+				"health": 100000
+			},
+			{
+				"health": 300000
+			},
+			{
+				"health": 500000
+			},
+			{
+				"health": 700000
+			},
+			{
+				"health": 1000000
+			}
+		]
+	},
+	"skills": {
+		"maxSupports": 3,
+		"attackSkills": [
+			{
+				"name": "Default Attack",
+				"levelReq": 0,
+				"stats": {
+					"attackSpeed": 1,
+					"manaCost": 0,
+					"baseDamageMultiplier": 100
+				},
+				"mods": [
+					"baseHitChance|+{100}% To Hit Chance"
+				]
+			},
+			{
+				"name": "Super Attack",
+				"levelReq": 2,
+				"stats": {
+					"attackSpeed": 0.8,
+					"manaCost": 10,
+					"baseDamageMultiplier": 140
+				},
+				"mods": [
+					"baseHitChance|+{80}% To Hit Chance",
+					"morePhysicalDamage|{80}% More Physical Damage"
+				]
+			},
+			{
+				"name": "Critical Punch",
+				"levelReq": 2,
+				"stats": {
+					"attackSpeed": 1.2,
+					"manaCost": 2,
+					"baseDamageMultiplier": 110
+				},
+				"mods": [
+					"baseCritChance|+{20}% To Critical Strike Chance",
+					"baseCritMulti|+{50}% To Critical Strike Multiplier"
+				]
+			},
+			{
+				"name": "Blood & Fury",
+				"levelReq": 2,
+				"stats": {
+					"attackSpeed": 1.2,
+					"manaCost": 2,
+					"baseDamageMultiplier": 110
+				},
+				"mods": [
+					"baseBleedChance|+{30}% Chance To Bleed",
+					"moreBleedDamage|{50}% More Bleed Damage"
+				]
+			}
+		],
+		"supportSkills": [
+			{
+				"name": "Physical Damage",
+				"levelReq": 0,
+				"stats": {
+					"manaMultiplier": 120
+				},
+				"mods": [
+					"moreAttackSpeed|{10}% More Attack Speed"
+				]
+			},
+			{
+				"name": "Attack Speed",
+				"levelReq": 0,
+				"stats": {
+					"manaMultiplier": 120
+				},
+				"mods": [
+					"moreAttackSpeed|{10}% More Attack Speed"
+				]
+			},
+			{
+				"name": "Hit Chance",
+				"levelReq": 0,
+				"stats": {
+					"manaMultiplier": 120
+				},
+				"mods": [
+					"baseHitChance|+{10}% To Hit Chance"
+				]
+			},
+			{
+				"name": "Crit Chance",
+				"levelReq": 3,
+				"stats": {
+					"manaMultiplier": 120
+				},
+				"mods": [
+					"baseCritChance|+{30}% To Critical Strike Chance"
+				]
+			},
+			{
+				"name": "Crit Multiplier",
+				"levelReq": 3,
+				"stats": {
+					"manaMultiplier": 120
+				},
+				"mods": [
+					"baseCritMulti|+{100}% To Critical Strike Multiplier"
+				]
+			},
+			{
+				"name": "Chance to Bleed",
+				"levelReq": 5,
+				"stats": {
+					"manaMultiplier": 120
+				},
+				"mods": [
+					"baseBleedChance|+{20}% Chance To Bleed"
+				]
+			},
+			{
+				"name": "Bleed Damage",
+				"levelReq": 5,
+				"stats": {
+					"manaMultiplier": 120
+				},
+				"mods": [
+					"moreBleedDamage|{50}% More Bleed Damage"
+				]
+			}
+		]
+	},
+	"items": {
+		"maxMods": 6,
+		"items": [
+			{
+				"name": "Item 1",
+				"levelReq": 1
+			},
+			{
+				"name": "Item 2",
+				"levelReq": 2
+			},
+			{
+				"name": "Item 3",
+				"levelReq": 3
+			},
+			{
+				"name": "Item 4",
+				"levelReq": 5
+			},
+			{
+				"name": "Item 5",
+				"levelReq": 7
+			}
+		],
+		"crafting": {
+			"basic": {
+				"actions": {
+					"rollMods": {
+						"tierTargets": [
+							{
+								"type": "random",
+								"cost": 10
+							},
+							{
+								"type": "lucky",
+								"cost": 200
+							},
+							{
+								"type": "max",
+								"cost": 1000
+							}
+						]
+					},
+					"rollValues": {
+						"cost": 1000
+					},
+					"addMod": {
+						"cost": 500
+					},
+					"remove": {
+						"cost": 500
+					}
+				}
+			}
+		},
+		"modTables": [
+			[
+				{
+					"levelReq": 1,
+					"weight": 100,
+					"mod": "basePhysicalDamage|Adds {3-4} To {5-7} Physical Damage"
+				},
+				{
+					"levelReq": 3,
+					"weight": 90,
+					"mod": "basePhysicalDamage|Adds {4-6} To {6-9} Physical Damage"
+				},
+				{
+					"levelReq": 5,
+					"weight": 90,
+					"mod": "basePhysicalDamage|Adds {8-10} To {11-14} Physical Damage"
+				},
+				{
+					"levelReq": 7,
+					"weight": 85,
+					"mod": "basePhysicalDamage|Adds {10-14} To {16-20} Physical Damage"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 80,
+					"mod": "incPhysicalDamage|{20-30}% Increased Physical Damage"
+				},
+				{
+					"levelReq": 5,
+					"weight": 80,
+					"mod": "incPhysicalDamage|{30-40}% Increased Physical Damage"
+				},
+				{
+					"levelReq": 7,
+					"weight": 80,
+					"mod": "incPhysicalDamage|{40-50}% Increased Physical Damage"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 100,
+					"mod": "baseHitChance|+{5-10}% To Hit Chance"
+				},
+				{
+					"levelReq": 5,
+					"weight": 100,
+					"mod": "baseHitChance|+{10-15}% To Hit Chance"
+				},
+				{
+					"levelReq": 7,
+					"weight": 100,
+					"mod": "baseHitChance|+{15-20}% To Hit Chance"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 80,
+					"mod": "incAttackSpeed|{20-30}% Increased Attack Speed"
+				},
+				{
+					"levelReq": 5,
+					"weight": 80,
+					"mod": "incAttackSpeed|{30-40}% Increased Attack Speed"
+				},
+				{
+					"levelReq": 7,
+					"weight": 80,
+					"mod": "incAttackSpeed|{40-50}% Increased Attack Speed"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 60,
+					"mod": "baseCritChance|+{5-9}% To Critical Strike Chance"
+				},
+				{
+					"levelReq": 5,
+					"weight": 60,
+					"mod": "baseCritChance|+{10-15}% To Critical Strike Chance"
+				},
+				{
+					"levelReq": 7,
+					"weight": 50,
+					"mod": "baseCritChance|+{16-20}% To Critical Strike Chance"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 60,
+					"mod": "baseCritMulti|+{24-29}% To Critical Strike Multiplier"
+				},
+				{
+					"levelReq": 5,
+					"weight": 60,
+					"mod": "baseCritMulti|+{30-44}% To Critical Strike Multiplier"
+				},
+				{
+					"levelReq": 7,
+					"weight": 50,
+					"mod": "baseCritMulti|+{45-60}% To Critical Strike Multiplier"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 70,
+					"mod": "baseBleedChance|+{3-6}% Chance To Bleed"
+				},
+				{
+					"levelReq": 5,
+					"weight": 60,
+					"mod": "baseBleedChance|+{7-11}% Chance To Bleed"
+				},
+				{
+					"levelReq": 7,
+					"weight": 50,
+					"mod": "baseBleedChance|+{12-15}% Chance To Bleed"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 70,
+					"mod": "incBleedDamage|{16-22}% Increased Bleed Damage"
+				},
+				{
+					"levelReq": 5,
+					"weight": 60,
+					"mod": "incBleedDamage|{23-31}% Increased Bleed Damage"
+				},
+				{
+					"levelReq": 7,
+					"weight": 50,
+					"mod": "incBleedDamage|{32-38}% Increased Bleed Damage"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 70,
+					"mod": "incManaRegen|{20-30}% Increased Mana Regeneration"
+				},
+				{
+					"levelReq": 5,
+					"weight": 70,
+					"mod": "incManaRegen|{31-40}% Increased Mana Regeneration"
+				},
+				{
+					"levelReq": 7,
+					"weight": 70,
+					"mod": "incManaRegen|{41-50}% Increased Mana Regeneration"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 70,
+					"mod": "incMaxMana|{20-30}% Increased Maximum Mana"
+				},
+				{
+					"levelReq": 5,
+					"weight": 70,
+					"mod": "incMaxMana|{31-40}% Increased Maximum Mana"
+				},
+				{
+					"levelReq": 7,
+					"weight": 70,
+					"mod": "incMaxMana|{41-50}% Increased Maximum Mana"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 70,
+					"mod": "baseMaxMana|+{20-50} To Maximum Mana"
+				},
+				{
+					"levelReq": 5,
+					"weight": 70,
+					"mod": "baseMaxMana|+{60-120} To Maximum Mana"
+				},
+				{
+					"levelReq": 7,
+					"weight": 70,
+					"mod": "baseMaxMana|+{150-300} To Maximum Mana"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 80,
+					"mod": "baseStrength|+{10-20} To Strength"
+				},
+				{
+					"levelReq": 3,
+					"weight": 80,
+					"mod": "baseStrength|+{20-30} To Strength"
+				},
+				{
+					"levelReq": 5,
+					"weight": 80,
+					"mod": "baseStrength|+{30-40} To Strength"
+				},
+				{
+					"levelReq": 7,
+					"weight": 80,
+					"mod": "baseStrength|+{40-50} To Strength"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 80,
+					"mod": "baseDexterity|+{10-20} To Dexterity"
+				},
+				{
+					"levelReq": 3,
+					"weight": 80,
+					"mod": "baseDexterity|+{20-30} To Dexterity"
+				},
+				{
+					"levelReq": 5,
+					"weight": 80,
+					"mod": "baseDexterity|+{30-40} To Dexterity"
+				},
+				{
+					"levelReq": 7,
+					"weight": 80,
+					"mod": "baseDexterity|+{40-50} To Dexterity"
+				}
+			],
+			[
+				{
+					"levelReq": 1,
+					"weight": 80,
+					"mod": "baseIntelligence|+{10-20} To Intelligence"
+				},
+				{
+					"levelReq": 3,
+					"weight": 80,
+					"mod": "baseIntelligence|+{20-30} To Intelligence"
+				},
+				{
+					"levelReq": 5,
+					"weight": 80,
+					"mod": "baseIntelligence|+{30-40} To Intelligence"
+				},
+				{
+					"levelReq": 7,
+					"weight": 80,
+					"mod": "baseIntelligence|+{40-50} To Intelligence"
+				}
+			]
+		]
+	},
+	"modTree": {
+		"numPointsPerLevel": 1,
+		"unassignCost": 1,
+		"nodes": [
+			{
+				"name": "Physical Damage",
+				"maxPoints": 5,
+				"levelReq": 1,
+				"mods": [
+                    "incPhysicalDamage|{10}% Increased Physical Damage"
+				]
+			},
+			{
+				"name": "Attack Speed",
+				"maxPoints": 10,
+				"levelReq": 1,
+				"mods": [
+                    "incAttackSpeed|{5}% Increased Attack Speed"
+				]
+			},
+			{
+				"name": "Hit Chance",
+				"maxPoints": 10,
+				"levelReq": 1,
+				"mods": [
+                    "baseHitChance|+{3}% To Hit Chance"
+				]
+			},
+			{
+				"name": "Strength",
+				"maxPoints": 10,
+				"levelReq": 3,
+				"mods": [
+                    "baseStrength|+{10} To Strength"
+				]
+			},
+			{
+				"name": "Dexterity",
+				"maxPoints": 10,
+				"levelReq": 3,
+				"mods": [
+                    "baseDexterity|+{10} To Dexterity"
+				]
+			},
+			{
+				"name": "Intelligence",
+				"maxPoints": 10,
+				"levelReq": 3,
+				"mods": [
+                    "baseIntelligence|+{10} To Intelligence"
+				]
+			},
+			{
+				"name": "Critical Strike Chance",
+				"maxPoints": 10,
+				"levelReq": 5,
+				"mods": [
+                    "baseCritChance|+{5}% To Critical Strike Chance"
+				]
+			},
+			{
+				"name": "Critical Strike Multiplier",
+				"maxPoints": 10,
+				"levelReq": 5,
+				"mods": [
+                    "baseCritMulti|+{15}% To Critical Strike Multiplier"
+				]
+			}
+		]
+	}
 }
