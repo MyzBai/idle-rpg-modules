@@ -4,10 +4,10 @@ Example of how to implement a module for the game https://myzbai.github.io/idle-
 Key
 529d32e203fb53700710d725ad75c820
 
-Name
+Name<br>
 Demo
 
-Description
+Description<br>
 This is a demo.
 
 module.json file is currently limited to 1mb in size.
