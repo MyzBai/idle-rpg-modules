@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/MyzBai/idle-rpg-modules/modules/module-schema.json",
-	    "config": {
+    "config": {
         "exclude": [
             "modTree"
         ],
